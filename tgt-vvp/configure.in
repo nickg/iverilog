@@ -36,4 +36,7 @@ AX_LD_SHAREDLIB_OPTS
 
 AX_CPP_IDENT
 
+# Optionally enable code coverage statistics
+AX_CODE_COVERAGE
+
 AC_OUTPUT(Makefile)

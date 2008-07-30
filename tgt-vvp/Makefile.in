@@ -41,6 +41,7 @@ INSTALL_DATA = @INSTALL_DATA@
 CPPFLAGS = @ident_support@ -I. -I$(srcdir)/.. @CPPFLAGS@ @DEFS@ @PICFLAG@
 CFLAGS = -Wall @CFLAGS@
 LDFLAGS = @LDFLAGS@
+TGTLDFLAGS = @TGTLDFLAGS@
 
 all: dep vvp.tgt vvp.conf vvp-s.conf
 
@@ -57,10 +58,9 @@ eval_real.o modpath.o vector.o \
 vvp_process.o vvp_scope.o
 
 ifeq (@WIN32@,yes)
-  TGTLDFLAGS=-L.. -livl
+  TGTLDFLAGS=-L.. -livl $(TGTLDFLAGS)
   TGTDEPLIBS=../libivl.a
 else
-  TGTLDFLAGS=
   TGTDEPLIBS=
 endif
 

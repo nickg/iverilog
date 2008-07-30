@@ -125,4 +125,7 @@ AC_SUBST(vpidir1)
 AC_SUBST(vpidir2)
 AC_MSG_RESULT(${vpidir1} ${vpidir2})
 
+# Optionally enable code coverage statistics
+AX_CODE_COVERAGE
+
 AC_OUTPUT(Makefile)

@@ -121,6 +121,9 @@ AX_C_UNDERSCORES_TRAILING
 
 AX_CPP_IDENT
 
+# Optionally enable code coverage statistics
+AX_CODE_COVERAGE
+
 # XXX disable tgt-fpga for the moment
 AC_CONFIG_SUBDIRS(vvp vpi tgt-stub tgt-null tgt-vvp libveriuser cadpli)
 

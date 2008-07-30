@@ -205,3 +205,18 @@ case "${host}" in
         ;;
 esac
 ])# AX_CPP_PRECOMP
+
+# Macro to support --enable-coverage option to build
+# iverilog with code coverage statistics.
+AC_DEFUN([AX_CODE_COVERAGE],
+[
+  AC_ARG_ENABLE(coverage,
+    [AS_HELP_STRING([--enable-coverage], [Enable code coverage statistics.])],
+    [if test "$enableval" = "yes" ; then
+       CXXFLAGS="-fprofile-arcs -ftest-coverage $CXXFLAGS"
+       CFLAGS="-fprofile-arcs -ftest-coverage $CFLAGS"
+       LDFLAGS="-fprofile-arcs $LDFLAGS"
+       TGTLDFLAGS="-fprofile-arcs $TGTLDFLAGS"
+     fi])
+  AC_SUBST(TGTLDFLAGS)
+])# AX_CODE_COVERAGE
