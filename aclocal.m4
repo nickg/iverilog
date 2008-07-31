@@ -213,8 +213,11 @@ AC_DEFUN([AX_CODE_COVERAGE],
   AC_ARG_ENABLE(coverage,
     [AS_HELP_STRING([--enable-coverage], [Enable code coverage statistics.])],
     [if test "$enableval" = "yes" ; then
-       CXXFLAGS="-fprofile-arcs -ftest-coverage $CXXFLAGS"
-       CFLAGS="-fprofile-arcs -ftest-coverage $CFLAGS"
+       # Explicitly turn off optimisation
+       # This flag goes at the end so as to override any
+       # other -Ox flags
+       CXXFLAGS="-fprofile-arcs -ftest-coverage $CXXFLAGS -O0"
+       CFLAGS="-fprofile-arcs -ftest-coverage $CFLAGS -O0"
        LDFLAGS="-fprofile-arcs $LDFLAGS"
        TGTLDFLAGS="-fprofile-arcs $TGTLDFLAGS"
      fi])
